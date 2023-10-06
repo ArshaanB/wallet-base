@@ -16,7 +16,7 @@ export default function Header() {
         <div className="flex lg:flex-1 text-lg font-semibold">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">My Crypto DB</span>
-            MyCryptoDB
+            My Crypto DB
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
