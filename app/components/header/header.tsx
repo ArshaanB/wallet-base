@@ -1,5 +1,4 @@
 "use client";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 
 /**
  * Tailwind UI: https://tailwindui.com/components/marketing/elements/headers
