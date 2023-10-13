@@ -1,14 +1,12 @@
-// If it doesn't work in the future: npx prisma generate
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-export async function createUser(name?: string) {
-  const newUser = await prisma.user.create({
-    data: {
-      name: name
-    }
-  });
-
-  return newUser;
+export function createUser(name?: string) {
+  fetch("/api/database", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name })
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.error(err));
 }

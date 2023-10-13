@@ -3,7 +3,7 @@
 import Header from "./components/header/header";
 import Table from "./components/table/table";
 
-import { createDatabase } from "./utils/database";
+import { createUser } from "./utils/database";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
             </div>
             <div className="w-1/4 pl-2">
               <button
-                onClick={() => createDatabase("test")}
+                onClick={() => createUser("test")}
                 type="button"
                 className="rounded-md bg-indigo-600 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
