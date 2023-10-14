@@ -5,14 +5,10 @@ import { useState, useEffect } from "react";
 import Header from "./components/header/header";
 import Table from "./components/table/table";
 
-import { createUser, getUsers } from "./utils/database";
+import { createUser } from "./utils/database";
 
 export default function Home() {
   const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    getUsers();
-  });
 
   return (
     <div>

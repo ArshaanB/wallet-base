@@ -1,3 +1,7 @@
+import { useState, useEffect } from "react";
+
+import { getUsers } from "../../utils/database";
+
 /**
  * Tailwind UI: https://tailwindui.com/components/application-ui/lists/tables
  * Option "With sticky header"
@@ -18,6 +22,18 @@ function classNames(...classes: string[]): string {
 }
 
 export default function Table() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const users = await getUsers();
+      console.log("users: ", users);
+      setUsers(users);
+    }
+
+    fetchUsers();
+  }, []);
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -78,7 +94,7 @@ export default function Table() {
                 </tr>
               </thead>
               <tbody>
-                {people.map((person, personIdx) => (
+                {users.map((person, personIdx) => (
                   <tr key={person.email}>
                     <td
                       className={classNames(

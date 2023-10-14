@@ -1,5 +1,5 @@
 export function createUser(name?: string) {
-  fetch("/api/database", {
+  return fetch("/api/database", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -7,18 +7,16 @@ export function createUser(name?: string) {
     body: JSON.stringify({ name })
   })
     .then((res) => res.json())
-    .then((data) => console.log(data))
     .catch((err) => console.error(err));
 }
 
 export function getUsers() {
-  fetch("/api/database", {
+  return fetch("/api/database", {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
     }
   })
     .then((res) => res.json())
-    .then((data) => console.log(data))
     .catch((err) => console.error(err));
 }
