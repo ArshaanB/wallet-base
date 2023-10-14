@@ -4,11 +4,16 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function POST(request: Request) {
-    const { name } = await request.json();
-    const result = await prisma.user.create({
-      data: {
-        name: name
-      }
-    })
-    return new Response(JSON.stringify(result));
-  }
+  const { name } = await request.json();
+  const result = await prisma.user.create({
+    data: {
+      name: name
+    }
+  })
+  return new Response(JSON.stringify(result));
+}
+
+export async function GET() {
+  const result = await prisma.user.findMany();
+  return new Response(JSON.stringify(result));
+}

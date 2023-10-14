@@ -10,3 +10,15 @@ export function createUser(name?: string) {
     .then((data) => console.log(data))
     .catch((err) => console.error(err));
 }
+
+export function getUsers() {
+  fetch("/api/database", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.error(err));
+}
