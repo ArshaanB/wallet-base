@@ -10,16 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int       @id @default(autoincrement())
-  name     String?
-  accounts Account[]
-}
+// model User {
+//   id       Int       @id @default(autoincrement())
+//   name     String?
+//   accounts Account[]
+// }
 
 model Account {
   id       Int     @id @default(autoincrement())
   nickname String?
   address  String
-  User     User?   @relation(fields: [userId], references: [id])
-  userId   Int?
+  // User     User?   @relation(fields: [userId], references: [id])
+  // userId   Int?
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { getUsers } from "../../utils/database";
+import { getAccounts } from "../../utils/database";
 
 /**
  * Tailwind UI: https://tailwindui.com/components/application-ui/lists/tables
@@ -22,16 +22,16 @@ function classNames(...classes: string[]): string {
 }
 
 export default function Table() {
-  const [users, setUsers] = useState([]);
+  const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    async function fetchUsers() {
-      const users = await getUsers();
-      console.log("users: ", users);
-      setUsers(users);
+    async function fetchAccounts() {
+      const accounts = await getAccounts();
+      console.log("accounts: ", accounts);
+      setAccounts(accounts);
     }
 
-    fetchUsers();
+    fetchAccounts();
   }, []);
 
   return (
@@ -94,7 +94,7 @@ export default function Table() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((person, personIdx) => (
+                {accounts.map((person, personIdx) => (
                   <tr key={person.email}>
                     <td
                       className={classNames(
