@@ -65,25 +65,19 @@ export default function Table() {
                     scope="col"
                     className="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
                   >
-                    Name
+                    id
                   </th>
                   <th
                     scope="col"
                     className="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell"
                   >
-                    Title
+                    Nickname
                   </th>
                   <th
                     scope="col"
                     className="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                   >
                     Email
-                  </th>
-                  <th
-                    scope="col"
-                    className="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
-                  >
-                    Role
                   </th>
                   <th
                     scope="col"
@@ -95,7 +89,7 @@ export default function Table() {
               </thead>
               <tbody>
                 {accounts.map((person, personIdx) => (
-                  <tr key={person.email}>
+                  <tr key={person.id}>
                     <td
                       className={classNames(
                         personIdx !== people.length - 1
@@ -104,7 +98,7 @@ export default function Table() {
                         "whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"
                       )}
                     >
-                      {person.name}
+                      {person.id}
                     </td>
                     <td
                       className={classNames(
@@ -114,7 +108,7 @@ export default function Table() {
                         "whitespace-nowrap hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"
                       )}
                     >
-                      {person.title}
+                      {person.nickname}
                     </td>
                     <td
                       className={classNames(
@@ -124,17 +118,7 @@ export default function Table() {
                         "whitespace-nowrap hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"
                       )}
                     >
-                      {person.email}
-                    </td>
-                    <td
-                      className={classNames(
-                        personIdx !== people.length - 1
-                          ? "border-b border-gray-200"
-                          : "",
-                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      )}
-                    >
-                      {person.role}
+                      {person.address}
                     </td>
                     <td
                       className={classNames(
@@ -148,7 +132,7 @@ export default function Table() {
                         href="#"
                         className="text-indigo-600 hover:text-indigo-900"
                       >
-                        Edit<span className="sr-only">, {person.name}</span>
+                        Edit
                       </a>
                     </td>
                   </tr>
