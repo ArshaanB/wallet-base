@@ -17,7 +17,6 @@ export default function Home() {
       {/* Consider: flex flex-col items-center justify-between */}
       <main className="min-h-screen p-24">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-2">Welcome!</h1>
           <div className="flex items-end">
             <div className="w-1/4 pr-2">
               <div className="mt-2">
