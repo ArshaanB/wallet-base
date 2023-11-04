@@ -10,4 +10,4 @@ Then open [http://localhost:3000](http://localhost:3000) with your browser to se
 
 ## Getting Started for Non-Developers
 
-Visit My Crypto DB by clicking here [COMING SOON].
+Visit My Crypto DB by visting [my-crypto-db.vercel.app](https://my-crypto-db.vercel.app/).
