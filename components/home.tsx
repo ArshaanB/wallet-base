@@ -15,22 +15,8 @@ export function Home() {
     <div key="1" className="flex flex-col w-full min-h-screen">
       <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6">
         <div className="w-1/5 flex items-center">
-          <svg
-            className=" w-8 h-8"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-            <line x1="4" x2="4" y1="22" y2="15" />
-          </svg>
-          <span className="sr-only">Company Logo</span>
+          <span className="font-bold">My Crypto DB</span>
+          <span className="sr-only">My Crypto DB</span>
         </div>
         <div className="w-4/5 flex justify-end space-x-4">
           <form className="w-4/5">
@@ -57,9 +43,7 @@ export function Home() {
               </svg>
             </div>
           </form>
-          <Button variant={"default"} className="w-1/5">
-            Submit
-          </Button>
+          <Button className="w-1/5">Submit</Button>
         </div>
       </header>
       <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
@@ -90,7 +74,7 @@ export function Home() {
                 <TableCell>50 ETH</TableCell>
                 <TableCell>In Wallet</TableCell>
                 <TableCell>
-                  <Button variant="outline">Edit</Button>
+                  <Button variant="primary_light">Edit</Button>
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -104,7 +88,7 @@ export function Home() {
                 <TableCell>100 BTC</TableCell>
                 <TableCell>Being LPed</TableCell>
                 <TableCell>
-                  <Button variant="outline">Edit</Button>
+                  <Button variant="primary_light">Edit</Button>
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -117,7 +101,7 @@ export function Home() {
                 <TableCell>50 BTC</TableCell>
                 <TableCell>In Wallet</TableCell>
                 <TableCell>
-                  <Button variant="outline">Edit</Button>
+                  <Button variant="primary_light">Edit</Button>
                 </TableCell>
               </TableRow>
             </TableBody>
