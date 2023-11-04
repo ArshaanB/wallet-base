@@ -1,3 +1,5 @@
+# My Crypto DB
+
 Keep track of your crypto assets across various blockchains.
 
 ## Getting Started for Developers
