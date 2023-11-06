@@ -66,7 +66,9 @@ export function Home() {
               <TableRow>
                 <TableCell>Ethereum</TableCell>
                 <TableCell>
-                  <span className="font-semibold">Jamie's Ethereum Wallet</span>
+                  <span className="font-semibold">
+                    Jamie&apos;s Ethereum Wallet
+                  </span>
                   <span className="text-sm text-gray-500 dark:text-gray-400 block">
                     0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE
                   </span>
@@ -80,7 +82,9 @@ export function Home() {
               <TableRow>
                 <TableCell>Bitcoin</TableCell>
                 <TableCell>
-                  <span className="font-semibold">Jamie's Bitcoin Wallet</span>
+                  <span className="font-semibold">
+                    Jamie&apos;s Bitcoin Wallet
+                  </span>
                   <span className="text-sm text-gray-500 dark:text-gray-400 block">
                     1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
                   </span>
