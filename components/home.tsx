@@ -13,13 +13,27 @@ import { Card } from "@/components/ui/card";
 export function Home() {
   return (
     <div key="1" className="flex flex-col w-full min-h-screen">
-      <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6">
+      <header className="flex items-center justify-between h-16 px-4 border-b shrink-0 md:px-6">
         <div className="w-1/5 flex items-center">
           <span className="font-bold">My Crypto DB</span>
           <span className="sr-only">My Crypto DB</span>
         </div>
-        <div className="w-4/5 flex justify-end space-x-4">
-          <form className="w-4/5">
+        <div className="w-1/5 flex items-center">
+          <Button variant={"dark"} className="w-1/2 mr-1">
+            Sign Up
+          </Button>
+          <Button variant={"dark"} className="w-1/2 ml-1">
+            Login
+          </Button>
+        </div>
+      </header>
+      <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
+        <div className="flex space-x-4 mb-2">
+          <div className="flex w-1/5 justify-between">
+            <Button className="w-1/2 mr-1">Filter</Button>
+            <Button className="w-1/2 ml-1">Sort</Button>
+          </div>
+          <form className="w-3/5">
             <div className="relative">
               <Input
                 className="w-full pl-8"
@@ -44,12 +58,6 @@ export function Home() {
             </div>
           </form>
           <Button className="w-1/5">Submit</Button>
-        </div>
-      </header>
-      <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
-        <div className="flex justify-start space-x-4 mb-2">
-          <Button>Filter</Button>
-          <Button>Sort</Button>
         </div>
         <Card>
           <Table>
