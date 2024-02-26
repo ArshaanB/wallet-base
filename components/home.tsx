@@ -20,7 +20,7 @@ export function Home() {
           <span className="font-bold">My Crypto DB</span>
           <span className="sr-only">My Crypto DB</span>
         </div>
-        <UserButton />
+        <UserButton afterSignOutUrl="/" />
       </header>
       <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
         <div className="flex space-x-4 mb-2">

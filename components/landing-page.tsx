@@ -2,9 +2,11 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { SignUpButton, SignInButton } from "@clerk/nextjs";
+import { SignUpButton, SignInButton, currentUser } from "@clerk/nextjs";
 
-export function LandingPage() {
+export async function LandingPage() {
+  const user = await currentUser();
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <div className="h-[100vh]">
@@ -52,14 +54,24 @@ export function LandingPage() {
                   in one app.
                 </p>
               </div>
-              <div className="space-x-4">
-                <div className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-md font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">
-                  <SignUpButton mode="modal" redirectUrl="/application" />
+
+              {user ? (
+                <Link
+                  className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-md font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                  href={"/application"}
+                >
+                  Launch Application
+                </Link>
+              ) : (
+                <div className="space-x-4">
+                  <div className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-md font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">
+                    <SignUpButton mode="modal" redirectUrl="/application" />
+                  </div>
+                  <div className="inline-flex h-9 items-center justify-center rounded-md border border-zinc-200 border-gray-200 bg-white px-6 py-4 text-md font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:border-zinc-800">
+                    <SignInButton mode="modal" redirectUrl="/application" />
+                  </div>
                 </div>
-                <div className="inline-flex h-9 items-center justify-center rounded-md border border-zinc-200 border-gray-200 bg-white px-6 py-4 text-md font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:border-zinc-800">
-                  <SignInButton mode="modal" redirectUrl="/application" />
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
