@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
 
+import { UserButton } from "@clerk/nextjs";
+
 export function Home() {
   return (
     <div key="1" className="flex flex-col w-full min-h-screen">
@@ -18,14 +20,7 @@ export function Home() {
           <span className="font-bold">My Crypto DB</span>
           <span className="sr-only">My Crypto DB</span>
         </div>
-        <div className="w-1/5 flex items-center">
-          <Button variant={"dark"} className="w-1/2 mr-1">
-            Sign Up
-          </Button>
-          <Button variant={"dark"} className="w-1/2 ml-1">
-            Login
-          </Button>
-        </div>
+        <UserButton />
       </header>
       <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
         <div className="flex space-x-4 mb-2">
