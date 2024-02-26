@@ -5,40 +5,40 @@ import { Button } from "@/components/ui/button";
 export function LandingPage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <MountainIcon className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Features
+      <div className="h-[100vh]">
+        <header className="px-4 lg:px-6 h-14 flex items-center">
+          <Link className="flex items-center justify-center" href="#">
+            <MountainIcon className="h-6 w-6" />
+            <span className="sr-only">My Crypto DB</span>
           </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Pricing
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            About
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Contact
-          </Link>
-        </nav>
-      </header>
-      <main className="flex-1">
-        <section className="w-full py-6 sm:py-12 md:py-24 lg:py-32 xl:py-48">
+          <nav className="ml-auto flex gap-4 sm:gap-6">
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4"
+              href="#"
+            >
+              Features
+            </Link>
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4"
+              href="#"
+            >
+              Pricing
+            </Link>
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4"
+              href="#"
+            >
+              About
+            </Link>
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4"
+              href="#"
+            >
+              Contact
+            </Link>
+          </nav>
+        </header>
+        <section className="w-full py-12 sm:py-24 md:py-36 lg:py-48 xl:py-72">
           <div className="px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -67,6 +67,8 @@ export function LandingPage() {
             </div>
           </div>
         </section>
+      </div>
+      <main className="flex-1 ">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="px-4 md:px-6">
             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
