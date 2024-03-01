@@ -16,6 +16,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  // If user is signed in and the current path is /login redirect the user to
+  // /application.
+  if (authenticated && request.nextUrl.pathname === "/login") {
+    return NextResponse.redirect(new URL("/application", request.url));
+  }
+
   return response;
 }
 
