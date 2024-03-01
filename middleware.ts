@@ -1,5 +1,5 @@
 import { updateSession } from "@/utils/supabase/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 /**
  * This is code run on every incoming HTTP request to the server which matches
@@ -7,7 +7,16 @@ import { NextRequest } from "next/server";
  */
 
 export async function middleware(request: NextRequest) {
-  return await updateSession(request);
+  const { response, authenticated } = await updateSession(request);
+
+  // If user is not signed in and the current path is not a valid path, redirect
+  // the user to /login.
+  const validPaths = ["/", "/login"];
+  if (!authenticated && !validPaths.includes(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  return response;
 }
 
 export const config = {
