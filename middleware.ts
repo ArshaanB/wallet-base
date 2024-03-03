@@ -39,21 +39,3 @@ export const config = {
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"
   ]
 };
-
-/**
- * 
- * CLERK AUTH MIDDLEWARE
- * Replace it with similar code using Supabase.
- * 
-import { authMiddleware } from "@clerk/nextjs";
-
-export default authMiddleware({
-  // Routes that can be accessed while signed out
-  publicRoutes: ["/"]
-});
-
-export const config = {
-  // Protects all routes, including api/trpc.
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"]
-};
-*/
