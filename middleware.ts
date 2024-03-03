@@ -11,8 +11,8 @@ export async function middleware(request: NextRequest) {
 
   // If user is not signed in and the current path is not a valid path, redirect
   // the user to /login.
-  const validPaths = ["/", "/login"];
-  if (!authenticated && !validPaths.includes(request.nextUrl.pathname)) {
+  const invalidPaths = ["/application", "/profile"];
+  if (!authenticated && invalidPaths.includes(request.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 

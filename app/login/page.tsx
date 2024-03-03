@@ -1,7 +1,11 @@
 import { login, signup } from "./actions";
+import AuthForm from "../../components/auth-form";
 
 export default function LoginPage() {
   return (
+    // <div className="w-1/2">
+    //   <AuthForm />
+    // </div>
     <form>
       <label htmlFor="email">Email:</label>
       <input id="email" name="email" type="email" required />
