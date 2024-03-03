@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Crypto DB",
+  title: "Wallet Base",
   description:
     "Keep track of your crypto assets across various blockchains with a beautiful UX."
 };

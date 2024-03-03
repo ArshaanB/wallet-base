@@ -17,8 +17,8 @@ export function Home() {
     <div key="1" className="flex flex-col w-full min-h-screen">
       <header className="flex items-center justify-between h-16 px-4 border-b shrink-0 md:px-6">
         <div className="w-1/5 flex items-center">
-          <span className="font-bold">My Crypto DB</span>
-          <span className="sr-only">My Crypto DB</span>
+          <span className="font-bold">Wallet Base</span>
+          <span className="sr-only">Wallet Base</span>
         </div>
         <form>
           <Button formAction={signout} variant={"destructive"}>
