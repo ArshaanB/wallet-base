@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
-import ProfileForm from "../../components/profile-form";
+import { ProfileForm } from "../../components/profile-form";
 
 export default async function Profile() {
   const supabase = createClient();
@@ -15,7 +15,14 @@ export default async function Profile() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh"
+      }}
+    >
       <ProfileForm user={user} />
     </div>
   );
