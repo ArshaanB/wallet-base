@@ -1,14 +1,22 @@
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
+import ProfileForm from "../../components/profile-form";
 
 export default async function Profile() {
   const supabase = createClient();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
+  const {
+    data: { user },
+    error
+  } = await supabase.auth.getUser();
+  if (error || !user) {
     redirect("/");
   }
 
-  return <p>Hello {data.user.email}</p>;
+  return (
+    <div>
+      <ProfileForm user={user} />
+    </div>
+  );
 }
