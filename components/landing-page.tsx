@@ -35,7 +35,7 @@ export async function LandingPage() {
             </Link>
             <Link
               className="text-sm font-medium hover:underline underline-offset-4"
-              href="#"
+              href="mailto:arshaan.marketing@gmail.com"
             >
               Contact
             </Link>
