@@ -23,7 +23,7 @@ export function Pricing() {
             <CardTitle className="text-4xl font-extrabold text-gray-900">
               Free
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-gray-500">
               You&apos;ll get all the features in this plan
             </CardDescription>
           </CardHeader>

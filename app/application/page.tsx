@@ -1,5 +1,5 @@
-import { Home } from "../../components/home";
+import { MainApplication } from "../../components/main-application";
 
-export default function Component() {
-  return <Home />;
+export default function Application() {
+  return <MainApplication />;
 }

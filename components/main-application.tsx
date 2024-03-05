@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
 
-import { signout } from "../app/login/actions";
-
-export function Home() {
+export function MainApplication() {
   return (
     <div key="1" className="flex flex-col w-full min-h-screen">
       <header className="flex items-center justify-between h-16 px-4 border-b shrink-0 md:px-6">
@@ -20,11 +18,6 @@ export function Home() {
           <span className="font-bold">Wallet Base</span>
           <span className="sr-only">Wallet Base</span>
         </div>
-        <form>
-          <Button formAction={signout} variant={"destructive"}>
-            Log Out
-          </Button>
-        </form>
       </header>
       <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-2 p-4 md:gap-4 md:p-10">
         <div className="flex space-x-4 mb-2">
