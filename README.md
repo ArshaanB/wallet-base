@@ -15,4 +15,6 @@ Then open [http://localhost:3000](http://localhost:3000) with your browser to se
 
 ## Getting Started for Non-Developers
 
-Visit Wallet Base by visting [try-wallet-base.vercel.app](https://try-wallet-base.vercel.app/).
+Visit Wallet Base by visting
+[try-wallet-base.vercel.app](https://try-wallet-base.vercel.app/). And coming
+soon, you can visit [trywalletbase.com](https://www.trywalletbase.com/)
