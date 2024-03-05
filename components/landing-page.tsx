@@ -23,21 +23,15 @@ export async function LandingPage() {
           <nav className="ml-auto flex gap-4 sm:gap-6">
             <Link
               className="text-sm font-medium hover:underline underline-offset-4"
-              href="#"
+              href="#features"
             >
               Features
             </Link>
             <Link
               className="text-sm font-medium hover:underline underline-offset-4"
-              href="#"
+              href="/pricing"
             >
               Pricing
-            </Link>
-            <Link
-              className="text-sm font-medium hover:underline underline-offset-4"
-              href="#"
-            >
-              About
             </Link>
             <Link
               className="text-sm font-medium hover:underline underline-offset-4"
@@ -87,7 +81,7 @@ export async function LandingPage() {
           </div>
         </section>
       </div>
-      <main className="flex-1 ">
+      <main id="features" className="flex-1 ">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="px-4 md:px-6">
             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
