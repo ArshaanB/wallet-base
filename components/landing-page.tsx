@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { WalletIcon } from "../assets/icons";
 
 import { createClient } from "@/utils/supabase/server";
 
@@ -14,33 +11,6 @@ export async function LandingPage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <div className="h-[100vh]">
-        <header className="px-4 lg:px-6 h-14 flex items-center">
-          <Link className="flex items-center justify-center" href="/">
-            <WalletIcon className="h-6 w-6 mr-2" />
-            <span className="sr-only">Wallet Base</span>
-            <span className="mr-2 font-medium">Wallet Base</span>
-          </Link>
-          <nav className="ml-auto flex gap-4 sm:gap-6">
-            <Link
-              className="text-sm font-medium hover:underline underline-offset-4"
-              href="#features"
-            >
-              Features
-            </Link>
-            <Link
-              className="text-sm font-medium hover:underline underline-offset-4"
-              href="/pricing"
-            >
-              Pricing
-            </Link>
-            <Link
-              className="text-sm font-medium hover:underline underline-offset-4"
-              href="mailto:arshaan.marketing@gmail.com"
-            >
-              Contact
-            </Link>
-          </nav>
-        </header>
         <section className="w-full py-12 sm:py-24 md:py-36 lg:py-48 xl:py-72">
           <div className="px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">

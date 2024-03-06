@@ -19,12 +19,12 @@ export default async function Profile() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen space-y-4">
+      <ProfileForm user={user} />
       <form className="w-full max-w-3xl">
         <Button formAction={signout} variant={"destructive"} className="w-full">
           Log Out
         </Button>
       </form>
-      <ProfileForm user={user} />
     </div>
   );
 }
