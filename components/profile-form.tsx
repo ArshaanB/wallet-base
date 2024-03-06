@@ -70,6 +70,8 @@ export function ProfileForm({ user }: { user: User }) {
     svmAddr: string | null;
     btcAddr: string | null;
   }) {
+    if (firstName == "" || lastName == "") return;
+
     try {
       setLoading(true);
 
@@ -109,6 +111,7 @@ export function ProfileForm({ user }: { user: User }) {
             placeholder="Enter your First Name"
             value={firstName || ""}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
         </div>
         <div className="space-y-2">
@@ -119,6 +122,7 @@ export function ProfileForm({ user }: { user: User }) {
             placeholder="Enter your Last Name"
             value={lastName || ""}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
         </div>
         <div className="space-y-2">
@@ -132,7 +136,7 @@ export function ProfileForm({ user }: { user: User }) {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="evm-address">Optional: EVM Address</Label>
+          <Label htmlFor="evm-address">EVM Address (Optional)</Label>
           <Input
             id="evm-address"
             placeholder="Enter your EVM Address"
@@ -142,7 +146,7 @@ export function ProfileForm({ user }: { user: User }) {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="svm-address">Optional: SVM Address</Label>
+          <Label htmlFor="svm-address">SVM Address (Optional)</Label>
           <Input
             id="svm-address"
             placeholder="Enter your SVM Address"
@@ -152,7 +156,7 @@ export function ProfileForm({ user }: { user: User }) {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="bitcoin-address">Optional: Bitcoin Address</Label>
+          <Label htmlFor="bitcoin-address">Bitcoin Address (Optional)</Label>
           <Input
             id="bitcoin-address"
             placeholder="Enter your Bitcoin Address"
