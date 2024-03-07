@@ -101,6 +101,7 @@ export function MailingList() {
           id="email"
           type="email"
           name="email"
+          required
         />
         <Button type="submit" variant={signUpButtonColor} className="w-24">
           {signUpButtonContents}

@@ -53,7 +53,7 @@ export default async function LandingPage() {
         </section>
       </div>
       <main id="features" className="flex-1 ">
-        <section className="w-full pb-12 md:pb-24 lg:pb-32">
+        <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="px-4 md:px-6">
             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
               <div className="space-y-4">
