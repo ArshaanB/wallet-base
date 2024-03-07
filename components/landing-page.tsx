@@ -1,9 +1,7 @@
 import Link from "next/link";
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
-import { mailing_signup } from "../utils/supabase/actions/mailing-list-actions";
+import { MailingList } from "./mailing-list";
 
 export async function LandingPage() {
   const supabase = createClient();
@@ -101,27 +99,7 @@ export async function LandingPage() {
                 keeping track of where all your assets are with Wallet Base.
               </p>
             </div>
-            <div className="mx-auto w-full max-w-sm space-y-2">
-              <form className="flex space-x-2">
-                <Input
-                  className="max-w-lg flex-1"
-                  placeholder="Enter your email"
-                  id="email"
-                  type="email"
-                  name="email"
-                />
-                <Button
-                  type="submit"
-                  variant={"dark"}
-                  formAction={mailing_signup}
-                >
-                  Sign Up
-                </Button>
-              </form>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                Sign up to get product updates and special offers.
-              </p>
-            </div>
+            <MailingList />
           </div>
         </section>
       </main>
