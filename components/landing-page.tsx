@@ -20,8 +20,8 @@ export async function LandingPage() {
                   Track your crypto portfolio
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Real-time tracking, price alerts, and historical analysis. All
-                  in one app.
+                  Real-time tracking, price alerts, and historical analysis is
+                  coming soon. All in one app.
                 </p>
               </div>
 
@@ -96,7 +96,7 @@ export async function LandingPage() {
               </h2>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Focus on research, fundamentals, and narratives instead of
-                keeping track of where all your assets are with Wallet Base.
+                keeping track of where all your assets are with WalletBase.
               </p>
             </div>
             <MailingList />

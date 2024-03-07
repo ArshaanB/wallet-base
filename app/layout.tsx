@@ -8,7 +8,7 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wallet Base",
+  title: "WalletBase",
   description:
     "Keep track of your crypto assets across various blockchains with a beautiful UX."
 };

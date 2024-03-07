@@ -1,10 +1,10 @@
-# Wallet Base
+# WalletBase
 
 Keep track of your crypto assets across various blockchains.
 
 ## Getting Started (Non-Developers)
 
-Visit Wallet Base by visting [trywalletbase.com](https://www.trywalletbase.com/).
+Visit WalletBase by visting [trywalletbase.com](https://www.trywalletbase.com/).
 Back-up: [try-wallet-base.vercel.app](https://try-wallet-base.vercel.app/)
 
 ## Getting Started (Developers)
