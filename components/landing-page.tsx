@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
+import { mailing_signup } from "../utils/supabase/actions/mailing-list-actions";
 
 export async function LandingPage() {
   const supabase = createClient();
@@ -97,7 +98,7 @@ export async function LandingPage() {
               </h2>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Focus on research, fundamentals, and narratives instead of
-                keeping track of where all your assets are with WalletBase.
+                keeping track of where all your assets are with Wallet Base.
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">
@@ -105,9 +106,15 @@ export async function LandingPage() {
                 <Input
                   className="max-w-lg flex-1"
                   placeholder="Enter your email"
+                  id="email"
                   type="email"
+                  name="email"
                 />
-                <Button type="submit" variant={"dark"}>
+                <Button
+                  type="submit"
+                  variant={"dark"}
+                  formAction={mailing_signup}
+                >
                   Sign Up
                 </Button>
               </form>
