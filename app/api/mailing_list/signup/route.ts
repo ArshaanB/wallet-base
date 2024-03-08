@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { createClient } from "@/utils/supabase/server";
 
-// Create a Route Handler for mailing_list/signup, adding a user to the mailing
+// Create a Route Handler for api/mailing_list/signup, adding a user to the mailing
 // list.
 export async function POST(request: NextRequest) {
   const supabase = createClient();
