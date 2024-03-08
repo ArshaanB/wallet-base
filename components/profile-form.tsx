@@ -1,6 +1,6 @@
 "use client";
-import { useCallback, useEffect, useState, ReactNode } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useEffect, useState, ReactNode } from "react";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { createClient } from "../utils/supabase/client";
 import { User } from "@supabase/gotrue-js";
 import { ArrowPathIcon, XMarkIcon, CheckIcon } from "../assets/icons";
@@ -35,7 +35,12 @@ export function ProfileForm({ user }: { user: User }) {
   const [svmAddr, setSvmAddr] = useState<string>("");
   const [btcAddr, setBtcAddr] = useState<string>("");
 
-  const mutation = useMutation({
+  const {
+    mutate: updateProfile,
+    isError: mutateIsError,
+    isPending: mutateIsPending,
+    isSuccess: mutateIsSuccess
+  } = useMutation({
     mutationFn: (data: ProfileData) =>
       fetch("/api/profile/update", {
         method: "POST",
@@ -46,7 +51,7 @@ export function ProfileForm({ user }: { user: User }) {
       })
   });
 
-  const getProfile = useCallback(async () => {
+  const fetchProfile = async () => {
     const { data, error, status } = await supabase
       .from("profiles")
       .select(`first_name, last_name, evm_addr, svm_addr, btc_addr`)
@@ -57,18 +62,29 @@ export function ProfileForm({ user }: { user: User }) {
       throw error;
     }
 
-    if (data) {
-      setFirstName(data.first_name);
-      setLastName(data.last_name);
-      setEvmAddr(data.evm_addr);
-      setSvmAddr(data.svm_addr);
-      setBtcAddr(data.btc_addr);
-    }
-  }, [user, supabase]);
+    return data;
+  };
+
+  const {
+    data: profileData,
+    isPending: queryIsPending,
+    isError: queryIsError,
+    isSuccess: queryIsSuccess
+  } = useQuery({
+    queryKey: ["profile", user?.id],
+    queryFn: fetchProfile,
+    enabled: Boolean(user?.id)
+  });
 
   useEffect(() => {
-    getProfile();
-  }, [user, getProfile]);
+    if (profileData) {
+      setFirstName(profileData.first_name);
+      setLastName(profileData.last_name);
+      setEvmAddr(profileData.evm_addr);
+      setSvmAddr(profileData.svm_addr);
+      setBtcAddr(profileData.btc_addr);
+    }
+  }, [profileData]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -78,18 +94,18 @@ export function ProfileForm({ user }: { user: User }) {
     const evmAddr = event.currentTarget.evmAddr.value;
     const svmAddr = event.currentTarget.svmAddr.value;
     const btcAddr = event.currentTarget.btcAddr.value;
-    mutation.mutate({ firstName, lastName, evmAddr, svmAddr, btcAddr });
+    updateProfile({ firstName, lastName, evmAddr, svmAddr, btcAddr });
   }
 
   let saveButtonColor: ButtonVariant = "dark";
   let saveButtonContents: ReactNode = "Save";
-  if (mutation.isPending) {
+  if (mutateIsPending || queryIsPending) {
     saveButtonColor = "yellow";
     saveButtonContents = <ArrowPathIcon />;
-  } else if (mutation.isError) {
+  } else if (mutateIsError || queryIsError) {
     saveButtonColor = "destructive";
     saveButtonContents = <XMarkIcon />;
-  } else if (mutation.isSuccess) {
+  } else if (mutateIsSuccess && queryIsSuccess) {
     saveButtonColor = "green";
     saveButtonContents = <CheckIcon />;
   }
@@ -179,7 +195,7 @@ export function ProfileForm({ user }: { user: User }) {
             type="submit"
             variant={saveButtonColor}
             className="w-full"
-            disabled={mutation.isPending}
+            disabled={mutateIsPending || queryIsPending}
           >
             {saveButtonContents}
           </Button>
@@ -188,6 +204,3 @@ export function ProfileForm({ user }: { user: User }) {
     </Card>
   );
 }
-
-// TODO: Disable Button and show "Loading..." instead of Save when form is in
-// loading state when page loads or when form is submitted.
