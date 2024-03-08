@@ -1,5 +1,5 @@
-import { Login } from "../../components/login";
+import { Entry } from "../../components/entry";
 
 export default function LoginPage() {
-  return <Login />;
+  return <Entry type="login" />;
 }

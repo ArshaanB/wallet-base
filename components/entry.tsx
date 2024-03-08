@@ -1,10 +1,15 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import { login, signup } from "../app/login/actions";
 import { WalletIcon } from "../assets/icons";
 
-export function Login() {
+type Entry = {
+  type: "login" | "signup";
+};
+
+export function Entry({ type: entryType }: Entry) {
   return (
     <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-md">
@@ -52,13 +57,38 @@ export function Login() {
                 name="password"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <Button variant="dark" formAction={signup}>
-                Sign up
-              </Button>
-              <Button variant="outline" formAction={login}>
-                Login
-              </Button>
+            <div>
+              {entryType === "signup" ? (
+                <div className="flex flex-col w-full">
+                  <Button variant="dark" formAction={signup}>
+                    Sign up
+                  </Button>
+                  <p className="text-center mt-4">
+                    Already have an account?
+                    <Link
+                      className="text-blue-600 hover:underline px-2"
+                      href="/login"
+                    >
+                      Login
+                    </Link>
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col w-full">
+                  <Button variant="dark" formAction={login}>
+                    Login
+                  </Button>
+                  <p className="text-center mt-4">
+                    Would you like to create an account?
+                    <Link
+                      className="text-blue-600 hover:underline px-2"
+                      href="/sign-up"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
           </form>
         </div>
