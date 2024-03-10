@@ -1,5 +1,4 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 
 import { createClient } from "@/utils/supabase/server";
 
@@ -23,7 +22,7 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    revalidatePath("/", "layout");
+
     return NextResponse.json(
       {
         message: "Logged in successfully",

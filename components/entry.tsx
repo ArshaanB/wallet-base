@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +14,8 @@ type Entry = {
 export function Entry({ type: entryType }: Entry) {
   const router = useRouter();
 
-  // TODO: Handle redirect on error.
+  // For signup and login, onSuccess handles both success and error cases on the
+  // server.
   const { mutate: signup } = useMutation({
     mutationFn: (formData: FormData) =>
       fetch("/api/signup", {
@@ -28,7 +28,7 @@ export function Entry({ type: entryType }: Entry) {
     onSuccess: async (data) => {
       const res = await data.json();
       router.push(res.redirect);
-      revalidatePath("/", "layout");
+      router.refresh();
     }
   });
 
@@ -43,8 +43,8 @@ export function Entry({ type: entryType }: Entry) {
       }),
     onSuccess: async (data) => {
       const res = await data.json();
-      await router.push(res.redirect);
-      revalidatePath("/", "layout");
+      router.push(res.redirect);
+      router.refresh();
     }
   });
 

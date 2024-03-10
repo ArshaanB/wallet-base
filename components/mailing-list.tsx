@@ -25,7 +25,7 @@ export function MailingList() {
   }
 
   let signUpButtonColor: ButtonVariant = "dark";
-  let signUpButtonContents: ReactNode = "Sign Up";
+  let signUpButtonContents: ReactNode = "Sign up";
   if (mutation.isPending) {
     signUpButtonColor = "yellow";
     signUpButtonContents = <ArrowPathIcon />;
